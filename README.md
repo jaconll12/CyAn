@@ -4,3 +4,4 @@ CyAn is written in 3 languages.  Bash, python and Powershell.  Powershell for th
 CyAn will allow running scans with Burp, Tenable Nessus, WebInspect, SSLLabs, and OWASP Zap.
 
 All variables need to be changed for the program to run.  
+Small Changed
