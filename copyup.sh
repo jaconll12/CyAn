@@ -1,0 +1,1 @@
+echo "put results/BurpScanReport.xml /" | sftp -i ../../

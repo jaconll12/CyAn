@@ -2,9 +2,13 @@
 source config.sh
 
 local_path=results/
-remote_path=$Environement/*
+remote_path=Test_*
 
-echo "get $remote_path $local_path" | sftp -i $key scanner@$remote_scanner_ip
+echo "get $remote_path $local_path" | sftp -i ../../scanner @$remote_scanner_ip
+
+
+
 
 now=$(date +"%m-%d-%Y")
-first="results/Environement/"$now".xml"
+first="results/"$now".xml"
+echo $first

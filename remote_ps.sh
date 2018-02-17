@@ -1,3 +1,3 @@
 #!/bin/bash
 source config.sh
-ssh -i $key scanner@$remote_scanner_ip powershell.exe $1
+ssh -i  scanner@$remote_scanner_ip $ps $1

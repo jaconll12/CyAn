@@ -1,3 +1,3 @@
 #!/bin/bash
 source config.sh
-ssh -i $key scanner@$scanner_ip powershell.exe $path/cleanup.ps1
+ssh -i  scanner@54.164.185.111 $ps $path/cleanup_NUI.ps1

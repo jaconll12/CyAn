@@ -1,12 +1,9 @@
 #!/bin/bash
 source config.sh
 
-local_path=*.xml
-local_path2=*.csv
-remote_path=/
-cp $local_path results/
+local_path=results/
+remote_path=*.zip
+#remote_path=*.xml
 
-echo "put $local_path $remote_path" | sftp -i $key scanner@$remote_scanner_ip
-echo "put $local_path2 $remote_path" | sftp -i $key scanner@$remote_scanner_ip
 
-rm -f *.xml
+echo "get $remote_path $local_path" | sftp -i ..scanner key@$remote_scanner_ip

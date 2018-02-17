@@ -1,3 +1,5 @@
-remote_scanner_ip=$ip
-environment=$environmentIP
-path="Remote Path on Windows Machine""
+remote_scanner_ip=
+environment=
+audit=
+path="C:path"
+ps="C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
