@@ -1,6 +1,12 @@
 {
-    "_comment" : "Converted from config.sh to config.json",
-    "remote_scanner" : "",
-    "environment" : "",
-    "path" : ""
+    "environment": {
+		"URL" : "URL or site to be scanned",
+		"path" : "remote path"
+	}
+    "scanner": {
+        "IP" : "IP to Scanner",
+        "ps" : "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
+    }
 }
+
+
