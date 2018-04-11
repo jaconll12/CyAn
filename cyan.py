@@ -10,7 +10,7 @@ import time
 from pprint import pprint
 import sys
 import nessus_scan
-import zap_scan_api
+#import zap_scan_api
 
 
 print "CyAn Start on $Environment"
@@ -98,25 +98,30 @@ elif answer == "nessus":
         ## You can add your code or functions here
 elif answer == "zap":     
         print  "Zap scan started"
-        zap_scan_api
+        os.system("python python zap_scan_api.py")
+        #subprocess.call("python zap_scan_api.py")
+        #os.system("./remote_ps.sh $path/WI.ps1")
+        ## You can add your code or functions here\
+elif answer == "all":     
+        print  "All Scanners started"
+        os.system("./burp_local.sh")
+        os.system("./remote_ps.sh $path/WI.ps1")
+        nessus_scan
+        os.system("python python zap_scan_api.py")
+        #subprocess.call("python zap_scan_api.py")
         #os.system("./remote_ps.sh $path/WI.ps1")
         ## You can add your code or functions here
 else:
     print "Something else"
-    sys.exit()
-#subprocess.call("pyssltest.py -i in.txt -o out_ssllabs.csv")
-'''
-pyssltest (in.txt, out_ssllabs.csv)
-
-
-
-
+    #sys.exit()
 #SSL Labs Scan
-python pyssltest.py -i in.txt -o out_manage_ssllabs.csv
-echo "SSL Labs scan started"
+os.system("python pyssltest.py -i in.txt -o out_ssllabs.csv")
+print "SSL Labs scan started"
 
-#copy down WI report for parsing
-./copy_down_WI_report.sh
+#Start of the Threadfix Uploads
+'''
+
+
 
 #TheadFix API Uploads
 #Burp
