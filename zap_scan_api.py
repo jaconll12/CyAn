@@ -1,5 +1,8 @@
 #!/usr/bin/env python
 #start zap daemon
+# encoding=utf8
+# -*- coding: utf-8 -*-
+
 import os
 import subprocess
 import time
@@ -12,7 +15,8 @@ print 'Waiting for ZAP to load, 10 seconds ...'
 time.sleep(10)
 
 # Here the target is defined and an instance of ZAP is created.
-target = ‘$URL’
+ 
+target = "http://localhost"
 zap = ZAPv2()
 
 # Use the line below if ZAP is not listening on 8090.
@@ -54,7 +58,7 @@ print 'Alerts: '
 pprint(zap.core.alerts())
 
 #export report to XML
-with open(“$path” + "zap_report_.xml", 'w') as f:
+with open("zap_report_.xml", 'w') as f:
     f.write (zap.core.xmlreport())
 
 

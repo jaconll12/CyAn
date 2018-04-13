@@ -10,11 +10,13 @@ import time
 from pprint import pprint
 import sys
 import nessus_scan
+import docker_start_threadfix
 #import zap_scan_api
 
 
 print "CyAn Start on $Environment"
-
+print "Starting Threadfix Docker Image"
+docker_start_threadfix
 ## Text menu in Python
 def print_menu():       ## Your menu design here
     print 30 * "-" , "MENU" , 30 * "-"
