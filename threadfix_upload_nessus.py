@@ -6,7 +6,7 @@ from threadfix_api import threadfix
 import glob 
 import json
 # Open JSON File for login 
-with open('../../threadfix.json') as json_data:
+with open('../threadfix_local.json') as json_data:
     d = json.load(json_data)
 
 host1 = d["threadfix"]["host"]
@@ -20,7 +20,7 @@ Nessus_File1 = Nessus_Array[0]
 print str(Nessus_File1)
 tf = threadfix.ThreadFixAPI(host, api_key,verify_ssl=False)
 response = tf.upload_scan(
-  application_id=,
+  application_id=1,
   file_path=str(Nessus_File1)
 )
 print "Nessus report Uploaded"

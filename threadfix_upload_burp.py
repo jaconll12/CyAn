@@ -6,7 +6,7 @@ from threadfix_api import threadfix
 import glob 
 import json
 # Open JSON File for login 
-with open('../../threadfix.json') as json_data:
+with open('../threadfix_local.json') as json_data:
     d = json.load(json_data)
 
 
@@ -21,7 +21,7 @@ Burp_File = Burp_Array[0]
 print str(Burp_File)
 tf = threadfix.ThreadFixAPI(host, api_key,verify_ssl=False)
 response = tf.upload_scan(
-  application_id=,
+  application_id=1,
   file_path=str(Burp_File)
 
 )

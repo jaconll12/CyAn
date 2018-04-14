@@ -10,14 +10,14 @@ import subprocess
 import json
 from zapv2 import ZAPv2
 
-with open('../../zap.json') as json_data:
+with open('../zap.json') as json_data:
     d = json.load(json_data)
-
 target = d["zap"]["host"]
 apikey = d["zap"]["api_key"]
 
 print 'Starting ZAP ...'
-subprocess.Popen(['/Applications/ZAP 2.6.0.app/Contents/Java/zap.sh', '-daemon'],stdout=open(os.devnull,'w'))
+subprocess.Popen(['/Applications/OWASP ZAP.app/Contents/Java/zap.sh','-daemon'],stdout=open(os.devnull,'w'))
+#subprocess.Popen(['/Applications/OWASP ZAP.app/Contents/Java/zap.sh'', '-daemon'],stdout=open(os.devnull,'w'))
 print 'Waiting for ZAP to load, 20 seconds ...'
 time.sleep(20)
 
