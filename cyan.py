@@ -11,9 +11,15 @@ from pprint import pprint
 import sys
 import nessus_scan
 import docker_start_threadfix
-#import zap_scan_api
+import json
 
-print "CyAn Start on $Environment"
+#import zap_scan_api
+with open('config.json') as json_data:
+    d = json.load(json_data)
+
+target = d["environment"]["target"]
+
+print "CyAn Start on ", target
 print "Starting Threadfix Docker Image"
 docker_start_threadfix
 ## Text menu in Python
@@ -31,7 +37,7 @@ loop=True
   
 while loop:          ## While loop which will keep going until loop = False
     print_menu()    ## Displays menu
-    choice = input("Enter your choice [1-5]: ")
+    choice = input("Enter your choice [1-6]: ")
      
     if choice==1:     
         answer = "burp"
@@ -86,14 +92,17 @@ os.system("./local_cleanup.sh")
 
 if answer == "burp":     
         print  "Burp scan started"
-        os.system("./burp_local.sh")
+        #os.system("./burp_local.sh")
+        import burp_local
+        burp_local
         import threadfix_upload_burp
         threadfix_upload_burp
         #os.system("./copy_burp_report.sh")
         ## You can add your code or functions here
 elif answer == "Web Inspect":     
         print  "Web Inspect scan started"
-        os.system("./remote_ps.sh $path/WI.ps1")
+        os.system("python remote_ps.py WI.ps1")
+        #os.system("./remote_ps.sh $path/WI.ps1")
         import threadfix_upload_WI
         threadfix_upload_WI
         #./copy_down_WI_report.sh
@@ -106,8 +115,6 @@ elif answer == "nessus":
         threadfix_upload_nessus
         #./copy_nessus_report.sh
         print "Nessus Report Uploaded"
-        #os.system("./remote_ps.sh $path/WI.ps1")
-        ## You can add your code or functions here
 elif answer == "zap":     
         print  "Zap scan started"
         #os.system("python zap_scan_api.py")
@@ -116,17 +123,22 @@ elif answer == "zap":
         threadfix_upload_ZAP
         #os.system("./copy_zap_report.sh")
         print "ZAP Scan Uploaded"
-        
-        ## You can add your code or functions here\
 elif answer == "all":     
         print  "All Scanners started"
-        os.system("./burp_local.sh")
+        import burp_local
+        burp_local
         os.system("./remote_ps.sh $path/WI.ps1")
         nessus_scan
         os.system("python python zap_scan_api.py")
-        #subprocess.call("python zap_scan_api.py")
-        #os.system("./remote_ps.sh $path/WI.ps1")
-        ## You can add your code or functions here
+        os.system("python remote_ps.py WI.ps1")
+        import threadfix_upload_burp
+        threadfix_upload_burp
+        import threadfix_upload_WI
+        threadfix_upload_WI
+        import threadfix_upload_nessus
+        threadfix_upload_nessus
+        import threadfix_upload_ZAP
+        threadfix_upload_ZAP
 else:
     print "Something else"
     #sys.exit()
@@ -134,17 +146,12 @@ else:
 #os.system("python pyssltest.py -i in.txt -o out_ssllabs.csv")
 print "SSL Labs scan started"
 print "Cybernetic Analyzer Scans Completed"
-#Start of the Threadfix Uploads
+
 '''
-
-
-
 #copy ssl_labs up
-./copy_ssllabs_report.sh
-
+os.system("./copy_ssllabs_report.sh")
 #remote S3 Upload Script
-./remote_ps.sh $path/s3_upload.ps1
-
+os.system("./remote_ps.sh $path/s3_upload.ps1")
 #remote email sript
-./remote_ps.sh $path/email.ps1
+os.system(./remote_ps.sh $path/email.ps1")
 '''

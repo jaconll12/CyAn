@@ -1,11 +1,11 @@
 {
     "environment": {
-		"URL" : "URL or site to be scanned",
+		"target" : "http://localhost",
 		"path" : "remote path"
-	}
+	},
     "scanner": {
-        "IP" : "IP to Scanner",
-        "ps" : "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe"
+        "IP" : "IP to Scanner"
+        
     }
 }
 
