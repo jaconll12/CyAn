@@ -25,7 +25,7 @@ with open('config1.json') as json_data:
 
 target = d["environment"]["target"]
 
-print "CyAn Start on ", tar
+print "CyAn Start on ", target
 print "Starting Threadfix Docker Image"
 docker_start_threadfix
 import createin
