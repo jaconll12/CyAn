@@ -14,13 +14,18 @@ import nessus_scan
 import docker_start_threadfix
 import json
 import local_cleanup
+import sys 
+import create_config
 
-with open('config.json') as json_data:
+tar = sys.argv[1]
+os.system(" python create_config.py " +tar)
+
+with open('config1.json') as json_data:
     d = json.load(json_data)
 
 target = d["environment"]["target"]
 
-print "CyAn Start on ", target
+print "CyAn Start on ", tar
 print "Starting Threadfix Docker Image"
 docker_start_threadfix
 import createin
