@@ -1,9 +1,10 @@
 #converted cyan bash to Python
 #Auto Security Scanner
 # Agrigated script to run all scripts
-# Created by Jmmy Lloyd
+# Created by Jimmy Lloyd
 # All rights reserved
 # This is open source software
+#adding comment for Jenkins
 
 import os
 import subprocess
@@ -133,11 +134,15 @@ else:
     #sys.exit()
 #SSL Labs Scan
 os.system("python pyssltest.py -i in.txt -o out_ssllabs.csv")
+os.system("powershell /Users/jacoll/CyAn/s3_upload.ps1")
+os.system("powershell /Users/jacoll/CyAn/s3_upload.ps1")
 print "SSL Labs scan started"
 print "Cybernetic Analyzer Scans Completed"
 
 '''
 #remote S3 Upload Script
+os.system("python remote_ps.py WI.ps1")
+
 os.system("./remote_ps.sh $path/s3_upload.ps1")
 #remote email sript
 os.system(./remote_ps.sh $path/email.ps1")
