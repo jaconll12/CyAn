@@ -5,3 +5,5 @@ CyAn will allow running scans with Burp, Tenable Nessus, WebInspect, SSLLabs, an
 
 All variables need to be changed for the program to run.  
 Small Changed
+ 
+Plans for 2020, add new scanner types and remove HP Fortify 
