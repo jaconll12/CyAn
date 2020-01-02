@@ -35,11 +35,10 @@ createin
 def print_menu():       ## Your menu design here
     print 30 * "-" , "MENU" , 30 * "-"
     print "1. Burp"
-    print "2. Web Inspect"
-    print "3. Nessus"
-    print "4. Zap"
-    print "5. All"
-    print "6. Exit"
+    print "2. Nessus"
+    print "3. Zap"
+    print "4. All"
+    print "5. Exit"
     print 67 * "-"
   
 loop=True      
@@ -54,26 +53,21 @@ while loop:          ## While loop which will keep going until loop = False
         print answer
         loop=False
     elif choice==2:
-        answer = "Web Inspect"
-        print  "WebInspect was selected"
-        print answer
-        loop=False
-    elif choice==3:
         answer = "nessus"
         print  "Nessus was selected"
         print answer
         loop=False
-    elif choice==4:
+    elif choice==3:
         answer = "zap"
         print  "Zap was selected"
         print answer
         loop=False
-    elif choice==5:
+    elif choice==4:
         answer = "all"
         print  "All Scanners was selected"
         print answer
         loop=False
-    elif choice==6:
+    elif choice==5:
         answer = "exit"
         print  "Exiting"
         sys.exit()
@@ -95,12 +89,6 @@ if answer == "burp":
         burp_local
         import threadfix_upload_burp
         threadfix_upload_burp
-elif answer == "Web Inspect":     
-        print  "Web Inspect scan started"
-        os.system("python remote_ps.py WI.ps1")
-        import threadfix_upload_WI
-        threadfix_upload_WI
-        print "WebInspect Report Uploaded"
 elif answer == "nessus":     
         print  "Nessus scan started"
         nessus_scan
@@ -117,14 +105,10 @@ elif answer == "all":
         print  "All Scanners started"
         import burp_local
         burp_local
-        os.system("python remote_ps.py WI.ps1")
         nessus_scan
         os.system("python python zap_scan_api.py")
-        os.system("python remote_ps.py WI.ps1")
         import threadfix_upload_burp
         threadfix_upload_burp
-        import threadfix_upload_WI
-        threadfix_upload_WI
         import threadfix_upload_nessus
         threadfix_upload_nessus
         import threadfix_upload_ZAP
@@ -140,6 +124,7 @@ print "SSL Labs scan started"
 print "Cybernetic Analyzer Scans Completed"
 
 '''
+need to rebuild report cloud upload portion
 #remote S3 Upload Script
 os.system("python remote_ps.py WI.ps1")
 
